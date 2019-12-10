@@ -11,7 +11,7 @@ import UIKit
 final class CanvasView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let circleSize = CGSize(width: 200, height: 200)
+        let circleSize = CGSize(width: 240, height: 240)
 
         // 球体の輪郭
         let circleView = UIView()
@@ -117,7 +117,7 @@ final class CanvasView: UIView {
             outlineGradientView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 1.1),
             outlineGradientView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 1.1),
             shadowView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
-            shadowView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 100),
+            shadowView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: circleSize.height * 0.5),
             shadowView.widthAnchor.constraint(equalTo: circleView.widthAnchor),
             shadowView.heightAnchor.constraint(equalTo: circleView.heightAnchor),
             reflectionGradientView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor, constant: 0),
