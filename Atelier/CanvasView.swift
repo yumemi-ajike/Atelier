@@ -70,8 +70,8 @@ final class CanvasView: UIView {
         let mirroredView = GradientView()
         mirroredView.translatesAutoresizingMaskIntoConstraints = false
         mirroredView.clipsToBounds = true
-        mirroredView.colors = [UIColor(white: 0, alpha: 0.1),
-                                     UIColor(white: 0, alpha: 0)]
+        mirroredView.colors = [UIColor(white: 0.7, alpha: 0.2),
+                               UIColor(white: 0.7, alpha: 0)]
         mirroredView.locations = [0, 0.8]
         mirroredView.layer.cornerRadius = circleSize.width * 0.7 / 2
         let maskLayer = CAShapeLayer()
@@ -131,7 +131,7 @@ final class CanvasView: UIView {
         topGradientView.colors = [UIColor(white: 1, alpha: 1),
                              UIColor(white: 1, alpha: 0.5),
                              UIColor(white: 1, alpha: 0)]
-        topGradientView.locations = [0, 0.5, 0.7]
+        topGradientView.locations = [0, 0.5, 1]
         var topGradientTransform = CATransform3DIdentity
         topGradientTransform.m34 = -1.0 / 500
         topGradientTransform = CATransform3DTranslate(topGradientTransform, 0, -circleSize.height * 0.4, 0)
