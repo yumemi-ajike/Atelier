@@ -14,6 +14,7 @@
 		08B330B0239555000079AEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B330AF239555000079AEDC /* Assets.xcassets */; };
 		08B330B3239555000079AEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B330B1239555000079AEDC /* LaunchScreen.storyboard */; };
 		08B330BB239555260079AEDC /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B330BA239555260079AEDC /* CanvasView.swift */; };
+		6B44574823A0717A005D2563 /* room.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B44574723A07179005D2563 /* room.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		08B330B4239555000079AEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08B330BA239555260079AEDC /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		08B330BE2397EF8E0079AEDC /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		6B44574723A07179005D2563 /* room.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = room.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				08B330AF239555000079AEDC /* Assets.xcassets */,
 				08B330B1239555000079AEDC /* LaunchScreen.storyboard */,
 				08B330B4239555000079AEDC /* Info.plist */,
+				6B44574723A07179005D2563 /* room.jpg */,
 			);
 			path = Atelier;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B44574823A0717A005D2563 /* room.jpg in Resources */,
 				08B330B3239555000079AEDC /* LaunchScreen.storyboard in Resources */,
 				08B330B0239555000079AEDC /* Assets.xcassets in Resources */,
 				08B330AE239554FF0079AEDC /* Main.storyboard in Resources */,

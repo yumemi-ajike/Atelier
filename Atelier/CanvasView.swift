@@ -86,6 +86,43 @@ final class CanvasView: UIView {
         mirroredView.layer.mask = maskLayer
         circleView.addSubview(mirroredView)
 
+        // 映り込みの表現２
+        let filter: CIFilter? = {
+            if let image = UIImage(named: "room.jpg"),
+                let inputImage = CIImage(image: image) {
+                let filter = CIFilter(name: "CIBumpDistortion")
+                filter?.setValue(inputImage, forKey: kCIInputImageKey)
+                filter?.setValue(CIVector(x: circleSize.width / 2, y: circleSize.height / 2), forKey: kCIInputCenterKey)
+                filter?.setValue(NSNumber(value: Float(circleSize.width / 2)), forKey: kCIInputRadiusKey)
+                filter?.setValue(NSNumber(value: 1.5), forKey: kCIInputScaleKey)
+                return filter
+            }
+            return nil
+        }()
+        if let outputImage = filter?.outputImage {
+            let imageMirroredView = UIImageView(image: UIImage(ciImage: outputImage))
+            imageMirroredView.contentMode = .scaleAspectFill
+            let imageMaskLayer = CAGradientLayer()
+            imageMaskLayer.frame.size = circleSize
+            // 中心から外にかかるようにする
+            imageMaskLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
+            imageMaskLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+            // 10%->10%->0%とかかるようにする
+            imageMaskLayer.colors = [UIColor(white: 0, alpha: 0.1).cgColor,
+                                     UIColor(white: 0, alpha: 0.1).cgColor,
+                                     UIColor.clear.cgColor]
+            imageMaskLayer.type = .radial
+            imageMirroredView.layer.mask = imageMaskLayer
+            circleView.addSubview(imageMirroredView)
+
+            NSLayoutConstraint.activate([
+                imageMirroredView.widthAnchor.constraint(equalTo: circleView.widthAnchor),
+                imageMirroredView.heightAnchor.constraint(equalTo: circleView.heightAnchor),
+                imageMirroredView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor, constant: 0),
+                imageMirroredView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor, constant: 0),
+            ])
+        }
+
         // ハイライト部分。重なり順の関係もあるので最後に一番上に追加。
         let topGradientView = GradientView()
         topGradientView.translatesAutoresizingMaskIntoConstraints = false
